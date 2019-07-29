@@ -1,18 +1,52 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
         <title>Home</title>
+        <style>
+            body {
+                background-image: url("drapes.png"), linear-gradient(#FF0000, #A00202);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                margin: 0;
+                height: 100%;
+            }
+            
+            input[type=text] {
+                width: 35%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+            }
+        </style>
+            <style>
+              .center {
+                  margin: 0;
+                  position: absolute;
+                  top: 50%;
+                  left: 52%;
+                  -ms-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+              }
+              
+            </style>
     </h:head>
     <h:body>
-        Search by ZIP
-        <h:form id="zipcode">  
-            <h:outputLabel for="zipcode">Enter zipcode:</h:outputLabel>  
-            <h:inputText id="day" value="#{tBean.zip}" requiredMessage="Zip required!" > 
-            </h:inputText>
-            <h:commandButton id="submit-button" value="Submit" action="#{tBean.goTheater()}"/>  
-        </h:form>
+        <div class = "center">
+            <center>
+            <h2>Cinesearch</h2>
+            <h3>Search for cinemas by ZIP</h3>
+            <h:form id="zipcode">  
+                <h:outputLabel for="zipcode">Enter zipcode: </h:outputLabel>  
+                <h:inputText id="day" value="#{tBean.zip}" requiredMessage="Zip required!" p:placeholder="Zipcode"> 
+                </h:inputText>
+                <h:commandButton id="submit-button" value="Submit" action="#{tBean.goTheater()}"/>  
+            </h:form>
+            </center>
+        </div>
     </h:body>
 </html>
 

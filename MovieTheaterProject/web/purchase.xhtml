@@ -11,15 +11,40 @@ and open the template in the editor.
     <head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            body {
+                background-image: url("drapes.png"), linear-gradient(#FF0000, #A00202);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                margin: 0;
+                height: 100%;
+            }
+        </style>
+        <style>
+          .center {
+              margin: 0;
+              position: absolute;
+              top: 50%;
+              left: 52%;
+              -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+          }
+        </style>
     </head>
     <body>
-        <h3>Cost for #{tBean.tickets} is $#{tBean.cost()}.00</h3>
-        <h3>Enter Payment Information</h3>
-        <h:form id="pay">  
-            <h:outputLabel for="pay">Card Number:</h:outputLabel>  
-            <h:inputText id="day" value="#{tBean.card}" requiredMessage="card required!" > 
-            </h:inputText>
-            <h:commandButton id="submit-button" value="Submit" action="#{tBean.purchase()}"/>  
-        </h:form>
+        <div class="center">
+            <center>
+            <h3>Cost for #{tBean.tickets} is $#{tBean.cost()}.00</h3>
+            <h3>Enter Payment Information</h3>
+            <h:form id="pay">  
+                <h:outputLabel for="pay">Card Number:</h:outputLabel>  
+                <h:inputText id="day" value="#{tBean.card}" requiredMessage="card required!" > 
+                </h:inputText>
+                <h:commandButton id="submit-button" value="Submit" action="#{tBean.purchase()}"/>  
+            </h:form>
+            </center>
+        </div>
     </body>
 </html>

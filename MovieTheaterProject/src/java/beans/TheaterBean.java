@@ -101,11 +101,18 @@ public class TheaterBean implements Serializable{
     }
     
     public String goTheater(){
-        if(Integer.toString(zip).length() == 5) return "theaters.xhtml";
-        else {
+        if(Integer.toString(zip).length() != 5){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
             FacesMessage.SEVERITY_ERROR, "Zip entered not 5 digits.", null));
             return null;
+        }
+        else if (theaterEJB.findTheaters(Integer.toString(zip)).isEmpty()) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+            FacesMessage.SEVERITY_ERROR, "No theaters found for zip entered.", null));
+            return null;
+        }
+        else {
+            return "theaters.xhtml";
         }
     }
     

@@ -11,24 +11,50 @@ and open the template in the editor.
     <head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            body {
+                background-image: url("drapes.png"), linear-gradient(#FF0000, #A00202);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                margin: 0;
+                height: 100%;
+            }
+        </style>
+        <style>
+          .center {
+              margin: 0;
+              position: absolute;
+              top: 50%;
+              left: 52%;
+              -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+          }
+        </style>
     </head>
     <body>
-        <f:view>
-            <h3>Movie Times for #{tBean.movie.movieName}</h3>
-            <h:form>
-                <h:dataTable value="#{tBean.timeList}" var="t">
-                    <h:column>
-                        <f:facet name = "header">Time</f:facet>
-                        #{t.timeTime}
-                    </h:column>
-                    
-                    <h:column>  
-                        <h:commandButton value="Go!"                                  
-                          action="#{tBean.goTickets(t)}"> 
-                        </h:commandButton>
-                    </h:column>
-                </h:dataTable>
-            </h:form>
-        </f:view>
+        <div class="center">
+            <center>
+                <f:view>
+                    <h3>Movie Times for #{tBean.movie.movieName}</h3>
+                    <h:form>
+                        <h:dataTable value="#{tBean.timeList}" var="t">
+                            <h:column>
+                                <f:facet name = "header">Time</f:facet>
+                                #{t.timeTime}
+                            </h:column>
+
+                            <h:column>  
+                                <h:commandButton value="Go!"                                  
+                                  action="#{tBean.goTickets(t)}"> 
+                                </h:commandButton>
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+                </f:view>
+            </center>
+        </div>
+        <img src="#{tBean.movie.movieId}.jpg"></img>
     </body>
 </html>

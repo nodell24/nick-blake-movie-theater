@@ -11,33 +11,58 @@ and open the template in the editor.
     <head>
         <title>Movies</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            body {
+                background-image: url("drapes.png"), linear-gradient(#FF0000, #A00202);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                margin: 0;
+                height: 100%;
+            }
+        </style>
+        <style>
+          .center {
+              margin: 0;
+              position: absolute;
+              top: 60%;
+              left: 52%;
+              -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+          }
+        </style>
     </head>
     <body>
-        <f:view>
-            <h:form>
-                <h:dataTable value="#{tBean.movies}" var="m">
-                    <h:column>
-                        <f:facet name = "header">Movie Title</f:facet>
-                        #{m.movieName}
-                    </h:column>
-                    
-                    <h:column>
-                        <f:facet name = "header">Genre(s)</f:facet>
-                        #{m.movieType}
-                    </h:column>
-                    
-                    <h:column>
-                        <f:facet name = "header">Duration</f:facet>
-                        #{m.movieDuration} min
-                    </h:column>
-                    
-                    <h:column>  
-                        <h:commandButton value="Go!"                                  
-                          action="#{tBean.goTimes(m)}"> 
-                        </h:commandButton>
-                    </h:column>
-                </h:dataTable>
-            </h:form>
-        </f:view>
+        <div class="center">
+            <center>
+                <f:view>
+                    <h:form>
+                        <h:dataTable value="#{tBean.movies}" var="m">
+                            <h:column>
+                                <f:facet name = "header">Movie Title</f:facet>
+                                #{m.movieName}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name = "header">Genre(s)</f:facet>
+                                #{m.movieType}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name = "header">Duration</f:facet>
+                                #{m.movieDuration} min
+                            </h:column>
+
+                            <h:column>  
+                                <h:commandButton value="Go!"                                  
+                                  action="#{tBean.goTimes(m)}"> 
+                                </h:commandButton>
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+                </f:view>
+            </center>
+        </div>
     </body>
 </html>

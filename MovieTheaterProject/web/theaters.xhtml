@@ -11,8 +11,32 @@ and open the template in the editor.
     <head>
         <title>Theaters</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            body {
+                background-image: url("drapes.png"), linear-gradient(#FF0000, #A00202);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                margin: 0;
+                height: 100%;
+            }
+        </style>
+        <style>
+          .center {
+              margin: 0;
+              position: absolute;
+              top: 50%;
+              left: 52%;
+              -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+          }
+        </style>
     </head>
     <body>
+        <div class="center">
+        <center>
+        <h2>Cinesearch</h2>
+        <h>Theaters in ${tBean.zip}</h>
         <f:view>
             <h:form>
                 <h:dataTable value="#{tBean.theaterList}" var="t">
@@ -26,22 +50,12 @@ and open the template in the editor.
                     
                     <h:column>
                         <f:facet name = "header">
-                            Zip
-                        </f:facet>
-                        #{t.theaterZip}
-                    </h:column>
-                    
-                    <h:column>
-                        <f:facet name = "header">
                             Address
                         </f:facet>
                         #{t.theaterAddress}
                     </h:column>
                     
                     <h:column>
-                        <f:facet name="header">
-                        <h:outputText value="Select"/>
-                        </f:facet>
                         <h:commandButton value="Go!"                                  
                           action="#{tBean.goMovies(t)}"> 
                         </h:commandButton>
@@ -50,5 +64,7 @@ and open the template in the editor.
                 </h:dataTable>
             </h:form>
         </f:view>
+        </center>
+        </div>
     </body>
 </html>

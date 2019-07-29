@@ -11,23 +11,48 @@ and open the template in the editor.
     <head>
         <title>Tickets</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            body {
+                background-image: url("drapes.png"), linear-gradient(#FF0000, #A00202);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                margin: 0;
+                height: 100%;
+            }
+        </style>
+        <style>
+          .center {
+              margin: 0;
+              position: absolute;
+              top: 50%;
+              left: 52%;
+              -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+          }
+        </style>
     </head>
     <body>
-        <h3>Purchasing tickets for #{tBean.movie.movieName} at #{tBean.times.timeTime}</h3>
-        <h:form id="purchase">
-            <h3>How many tickets:</h3>
-            <h:selectOneMenu value = "#{tBean.tickets}"> 
-                <f:selectItem itemValue = "1" itemLabel = "1" /> 
-                <f:selectItem itemValue = "2" itemLabel = "2" />
-                <f:selectItem itemValue = "3" itemLabel = "3" />
-                <f:selectItem itemValue = "4" itemLabel = "4" />
-                <f:selectItem itemValue = "5" itemLabel = "5" />
-                <f:selectItem itemValue = "6" itemLabel = "6" />
-                <f:selectItem itemValue = "7" itemLabel = "7" />
-                <f:selectItem itemValue = "8" itemLabel = "8" />
-                <f:selectItem itemValue = "9" itemLabel = "9" />
-            </h:selectOneMenu>
-            <h:commandButton value = "Submit" action = "purchase.xhtml" />
-        </h:form>
+        <div class="center">
+            <center>
+            <h3>Purchasing tickets for #{tBean.movie.movieName} at #{tBean.times.timeTime}</h3>
+            <h:form id="purchase">
+                <h3>How many tickets:</h3>
+                <h:selectOneMenu value = "#{tBean.tickets}"> 
+                    <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                    <f:selectItem itemValue = "2" itemLabel = "2" />
+                    <f:selectItem itemValue = "3" itemLabel = "3" />
+                    <f:selectItem itemValue = "4" itemLabel = "4" />
+                    <f:selectItem itemValue = "5" itemLabel = "5" />
+                    <f:selectItem itemValue = "6" itemLabel = "6" />
+                    <f:selectItem itemValue = "7" itemLabel = "7" />
+                    <f:selectItem itemValue = "8" itemLabel = "8" />
+                    <f:selectItem itemValue = "9" itemLabel = "9" />
+                </h:selectOneMenu>
+                <h:commandButton value = "Submit" action = "purchase.xhtml" />
+            </h:form>
+            </center>
+        </div>
     </body>
 </html>

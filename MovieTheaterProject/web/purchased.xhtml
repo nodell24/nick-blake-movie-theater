@@ -11,12 +11,37 @@ and open the template in the editor.
     <head>
         <title>Purchase Successful</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            body {
+                background-image: url("drapes.png"), linear-gradient(#FF0000, #A00202);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                margin: 0;
+                height: 100%;
+            }
+        </style>
+        <style>
+          .center {
+              margin: 0;
+              position: absolute;
+              top: 50%;
+              left: 52%;
+              -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+          }
+        </style>
     </head>
     <body>
-        <h3>Purchase of #{tBean.tickets} for #{tBean.movie.movieName} at #{tBean.times.timeTime} for #{tBean.cost()} successful</h3>
-        <h3>Enjoy your Film</h3>
-        <h:form>
-            <h:commandLink value="Return Home" action="index.xhtml"></h:commandLink>
-        </h:form>
+        <div class="center">
+            <center>
+                <h3>Purchase of #{tBean.tickets} tickets for #{tBean.movie.movieName} at #{tBean.times.timeTime} for $#{tBean.cost()} was successful.</h3>
+                <h3>Enjoy your Film</h3>
+                <h:form>
+                    <h:commandLink value="Return Home" action="index.xhtml"></h:commandLink>
+                </h:form>
+            </center>
+        </div>
     </body>
 </html>
