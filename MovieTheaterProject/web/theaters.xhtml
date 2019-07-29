@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Theaters</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <f:view>
+            <h:form>
+                <h:dataTable value="#{tBean.theaterList}" var="t">
+                    
+                    <h:column>
+                        <f:facet name = "header">
+                            Theater
+                        </f:facet>
+                        #{t.theaterName}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name = "header">
+                            Zip
+                        </f:facet>
+                        #{t.theaterZip}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name = "header">
+                            Address
+                        </f:facet>
+                        #{t.theaterAddress}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                        <h:outputText value="Select"/>
+                        </f:facet>
+                        <h:commandButton value="Go!"                                  
+                          action="#{tBean.goMovies(t)}"> 
+                        </h:commandButton>
+                    </h:column>
+              
+                </h:dataTable>
+            </h:form>
+        </f:view>
+    </body>
+</html>
